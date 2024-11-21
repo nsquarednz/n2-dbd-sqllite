@@ -1,0 +1,12 @@
+Source: PACKAGE
+Section: web
+Priority: extra
+Maintainer: N-Squared Software <support@nsquared.nz>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.4
+Homepage: http://www.nsquared.nz/
+
+Package: PACKAGE
+Architecture: amd64
+Depends: ${misc:Depends}, libdbi-perl
+Description: N-Squared Software fork of 1.76.0 of the Perl DBD SQLLite module.
