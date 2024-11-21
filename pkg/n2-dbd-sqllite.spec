@@ -50,6 +50,8 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 
 # Include the core files needed to execute the library code.
+# This differs depending on the version of Redhat as newer versions include the version Number.
+%if %{rhel} <= 8
 /usr/local/lib64/perl5/auto/DBD/SQLite/SQLite.so
 /usr/local/lib64/perl5/auto/DBD/SQLite/.packlist
 /usr/local/lib64/perl5/auto/share/dist/DBD-SQLite/sqlite3ext.h
@@ -64,6 +66,24 @@ rm -rf %{buildroot}
 /usr/local/lib64/perl5/DBD/SQLite/Constants.pm
 /usr/local/lib64/perl5/DBD/SQLite/GetInfo.pm
 /usr/local/lib64/perl5/DBD/SQLite/Cookbook.pod
+%endif
+
+%if %{rhel} >= 9
+/usr/local/lib64/perl5/*/auto/DBD/SQLite/SQLite.so
+/usr/local/lib64/perl5/*/auto/DBD/SQLite/.packlist
+/usr/local/lib64/perl5/*/auto/share/dist/DBD-SQLite/sqlite3ext.h
+/usr/local/lib64/perl5/*/auto/share/dist/DBD-SQLite/sqlite3.h
+/usr/local/lib64/perl5/*/auto/share/dist/DBD-SQLite/sqlite3.c
+/usr/local/lib64/perl5/*/DBD/SQLite.pm
+/usr/local/lib64/perl5/*/DBD/SQLite/VirtualTable.pm
+/usr/local/lib64/perl5/*/DBD/SQLite/Fulltext_search.pod
+/usr/local/lib64/perl5/*/DBD/SQLite/VirtualTable
+/usr/local/lib64/perl5/*/DBD/SQLite/VirtualTable/FileContent.pm
+/usr/local/lib64/perl5/*/DBD/SQLite/VirtualTable/PerlData.pm
+/usr/local/lib64/perl5/*/DBD/SQLite/Constants.pm
+/usr/local/lib64/perl5/*/DBD/SQLite/GetInfo.pm
+/usr/local/lib64/perl5/*/DBD/SQLite/Cookbook.pod
+%endif
 
 # Bundle the DBD SQLLite man pages.
 /usr/local/share/man/man3/DBD::SQLite.3pm

@@ -23,7 +23,6 @@ tmp/
 .perl-version
 deploy
 pkg/rpms
-pkg/n2-dbd-sqllite-*
 pkg/*.build
 pkg/*.orig.tar.gz
 pkg/*.diff.gz
